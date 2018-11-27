@@ -4,11 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CoffeeShop.Controllers
+namespace GC_CoffeeShop.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Registration()
         {
             return View();
         }
@@ -26,5 +31,6 @@ namespace CoffeeShop.Controllers
 
             return View();
         }
+
     }
 }
