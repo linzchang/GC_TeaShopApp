@@ -15,15 +15,9 @@ namespace CoffeeShop.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult RegistrationForm(Models.FormData formData)
+        public ActionResult Results(User user)
         {
-            return RedirectToAction("Results");
-        }
-
-        public ActionResult Results()
-        {
-            return View();
+            return View(user);
         }
     }
 }
