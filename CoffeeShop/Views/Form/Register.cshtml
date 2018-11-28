@@ -1,4 +1,4 @@
-﻿@model CoffeeShop.Models.FormData
+﻿@model CoffeeShop.Models.User
 
 @{
     ViewBag.Title = "Registration Form";
@@ -6,18 +6,62 @@
 
 <h2>Registration Page</h2>
 
-@using (Html.BeginForm("RegistrationForm", "Form", FormMethod.Post))
-{
-    @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
-    @Html.TextBoxFor(model => model.FirstName)
-    @Html.TextBoxFor(model => model.LastName)
-    @Html.TextBoxFor(model => model.Address)
-    @Html.TextBoxFor(model => model.Email)
-    @Html.TextBoxFor(model => model.PhoneNumber)
-    @Html.TextBoxFor(model => model.FavoriteDrink)
-    @Html.TextBoxFor(model => model.Username)
-    @Html.TextBoxFor(model => model.Password)
+<div class="container">
+    @using (Html.BeginForm("Results", "Form", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
-    <input type="submit" value="Register" />
-}
+    <fieldset class="border p-2">
+        <legend class="w-auto">Details:</legend>
+
+        <p class="mb-2">First Name: @Html.TextBoxFor(model => model.FirstName, new { @class = "form - control", type = "text", required = "required" })</p>
+        <p class="mb-2">Last Name: @Html.TextBoxFor(model => model.LastName, new { @class = "form - control", type = "text", required = "required" })</p>
+        <p class="mb-2">Address: @Html.TextBoxFor(model => model.Address, new { @class = "form - control", type = "text", required = "required" })</p>
+        <p class="mb-2">Email: @Html.TextBoxFor(model => model.Email, new { @class = "form - control", type = "email", required = "required" })</p>
+        <p class="mb-2">Phone Number: @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form - control", type = "tel", required = "required" })</p>
+
+    </fieldset>
+
+        <div class="container">
+            <p class="mb-2">First Name: @Html.TextBoxFor(model => model.FirstName, new { @class = "form - control", type = "text", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Last Name: @Html.TextBoxFor(model => model.LastName, new { @class = "form - control", type = "text", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Address: @Html.TextBoxFor(model => model.Address, new { @class = "form - control", type = "text", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Email: @Html.TextBoxFor(model => model.Email, new { @class = "form - control", type = "email", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Phone Number: @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form - control", type = "tel", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">
+                Favorite Drink: @Html.DropDownListFor(model => model.FavoriteDrink, new List<SelectListItem>
+                { new SelectListItem{Text="Coffee", Value="Coffee"},
+                  new SelectListItem{Text="Tea", Value="Tea"}},
+                "Please select", new { @class = "form - control", required = "required" })
+            </p>
+
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Username: @Html.TextBoxFor(model => model.Username, new { @class = "form - control", type = "text", required = "required" })</p>
+        </div>
+
+        <div class="container">
+            <p class="mb-2">Password: @Html.TextBoxFor(model => model.Password, new { @class = "form - control", type = "password", required = "required" })</p>
+        </div>
+
+        <input type="submit" value="Register" class="btn btn-default" />
+    }
+</div>
 
