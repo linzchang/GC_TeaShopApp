@@ -1,35 +1,23 @@
-﻿
+﻿@model CoffeeShop.Models.FormData
+
 @{
     ViewBag.Title = "Registration Form";
 }
 
 <h2>Registration Page</h2>
 
-<form action="/Form/Registration" method="post">
-    <label>First Name: </label>
-    <input type="text" name="firstName" />
-    <br />
-    <label>Last Name: </label>
-    <input type="text" name="lastName" />
-    <br />
-    <label>Address: </label>
-    <input type="text" name="address" />
-    <br />
-    <label>Email: </label>
-    <input type="text" name="email" />
-    <br />
-    <label>Phone Number: </label>
-    <input type="text" name="phoneNumber" />
-    <br />
-    <label>Favorite Drink: </label>
-    <input type="text" name="favoriteDrink" />
-    <br />
-    <label>Username: </label>
-    <input type="text" name="username" />
-    <br />
-    <label>Password: </label>
-    <input type="text" name="password" />
-    <br />
-    <input type="submit" value="Save" />
-</form>
+@using (Html.BeginForm("RegistrationForm", "Form", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+    @Html.TextBoxFor(model => model.FirstName)
+    @Html.TextBoxFor(model => model.LastName)
+    @Html.TextBoxFor(model => model.Address)
+    @Html.TextBoxFor(model => model.Email)
+    @Html.TextBoxFor(model => model.PhoneNumber)
+    @Html.TextBoxFor(model => model.FavoriteDrink)
+    @Html.TextBoxFor(model => model.Username)
+    @Html.TextBoxFor(model => model.Password)
+
+    <input type="submit" value="Register" />
+}
 

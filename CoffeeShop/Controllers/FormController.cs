@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CoffeeShop.Models;
 
-namespace GC_CoffeeShop.Controllers
+namespace CoffeeShop.Controllers
 {
     public class FormController : Controller
     {
@@ -15,10 +16,14 @@ namespace GC_CoffeeShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult FormOne(string firstName, string lastName, string address, string email,
-            int phoneNumber, string favoriteDrink, string username, string password)
+        public ActionResult RegistrationForm(Models.FormData formData)
         {
-            return RedirectToAction("ActionName");
+            return RedirectToAction("Results");
+        }
+
+        public ActionResult Results()
+        {
+            return View();
         }
     }
 }
