@@ -13,7 +13,6 @@
 
     <fieldset class="mt-4">
         <legend class="w-auto">Details</legend>
-
         <div class="form-group required">
             <label class='control-label'>First Name</label>
             @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter First Name" })
@@ -22,23 +21,20 @@
             <label class='control-label'>Last Name</label>
             @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Last Name" })
         </div>
-
         <div class="form-group required">
             <label class='control-label'>Address</label>
             @Html.TextBoxFor(model => model.Address, new { @class = "form-control", type = "text", required = "required", placeholder = "Enter Address" })
         </div>
-
         <div class="form-group required">
             <label class='control-label'>Email</label>
             @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", required = "required", placeholder = "Enter Email" })
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-
         <div class="form-group required">
             <label class='control-label'>Phone Number</label>
             @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control", id = "phone", type = "tel", required = "required", placeholder = "Enter Phone Number" })
+            <p id="phoneAlert" class="text-danger"></p>
         </div>
-
     </fieldset>
 
     <div class="form-group mt-2">
@@ -58,6 +54,15 @@
         <div class="form-group required">
             <label class='control-label'>Password</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password", required = "required", placeholder = "Create Password" })
+        </div>
+        <div id="passwordInfo">
+            <p>Password must meet the following requirements:</p>
+            <ul>
+                <li id="letter" class="text-danger">At least one letter</li>
+                <li id="capital" class="text-danger">At least one capital letter</li>
+                <li id="number" class="text-danger">At least one number</li>
+                <li id="length" class="text-danger">Have at least 8 characters</li>
+            </ul>
         </div>
     </fieldset>
     <br />
