@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    
     padding-bottom: 20px;
 }
 
@@ -20,5 +20,11 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 500px;
+}
+
+/* Show which fields are required */
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
 }
