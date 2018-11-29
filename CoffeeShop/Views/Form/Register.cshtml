@@ -36,7 +36,7 @@
 
         <div class="form-group">
             <label>Phone Number</label>
-            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form - control", type = "tel", required = "required" })
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form - control", id="phone", type = "tel", required = "required" })
         </div>
 
     </fieldset>
@@ -60,13 +60,17 @@
             <label>Password</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form - control", type = "password", required = "required" })
         </div>
-        <div class="form-group">
+        @*<div class="form-group">
             <label>Re-enter Password</label>
             @Html.TextBoxFor(model => model.Password, new { @class = "form - control", type = "password", required = "required" })
-        </div>
+        </div>*@
     </fieldset>
 
-    <input type="submit" value="Register" class="btn btn-default" />
+    <input type="submit" value="Register" class="btn btn-default"/>
+
+    <p id="register_submit">Text here</p>
 }
+
+@*<script type="text/javascript" src="~/Scripts/Register.js"></script>*@
 
 
