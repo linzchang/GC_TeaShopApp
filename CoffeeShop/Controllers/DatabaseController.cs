@@ -11,6 +11,24 @@ namespace CoffeeShop.Controllers
     public class DatabaseController : Controller
     {
         // GET: Database
+        public ActionResult AddItem()
+        {
+            return View();
+        }
+
+        public ActionResult SaveNewItem(Item newItem)
+        {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+
+            if (newItem != null)
+            {
+                ORM.Items.Add(newItem);
+                ORM.SaveChanges();
+            }
+
+            return RedirectToAction("Items", "Home");
+        }
+
         public ActionResult EditItem(int itemID)
         {
             CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();

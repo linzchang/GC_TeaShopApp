@@ -1,0 +1,36 @@
+﻿@model CoffeeShop.Models.Item
+
+@{
+    ViewBag.Title = "AddItem";
+}
+
+<h2>Add Item</h2>
+
+@using (Html.BeginForm("SaveNewItem", "Database", FormMethod.Post))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.TextBoxFor(model => model.ItemID, new { @class = "form-control", type = "hidden" })
+    </div>
+    <div class="form-group">
+        <label class='control-label'>Item Name</label>
+        @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control", type = "text", placeholder = "Enter Item Name", required = "required" })
+    </div>
+    <div class="form-group">
+        <label class='control-label'>Description</label>
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", type = "text", placeholder = "Enter Description", required = "required" })
+    </div>
+    <div class="form-group">
+        <label class='control-label'>Quantity</label>
+        @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control", type = "text", placeholder = "Enter Quantity", required = "required" })
+    </div>
+    <div class="form-group">
+        <label class='control-label'>Price</label>
+        @Html.TextBoxFor(model => model.Price, new { @class = "form-control", type = "text", placeholder = "Enter Price", required = "required" })
+    </div>
+    <input type="submit" class="btn btn-secondary btn-lg" value="Submit" />
+}
+
+
