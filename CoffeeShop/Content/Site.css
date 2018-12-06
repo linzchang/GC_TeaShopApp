@@ -20,11 +20,27 @@
 input,
 select,
 textarea {
-    max-width: 500px;
+    max-width: 90%;
 }
 
 /* Show which fields are required */
 .form-group.required .control-label:after {
     content: "*";
     color: red;
+}
+
+#passwordInfo {
+    display: none;
+}
+
+/*.itemImage {
+    height: auto;
+    width: auto;
+    max-width: 50px;
+    max-height: 50px;
+}*/
+
+.jumbotron-custom {
+    background-image: url('../Images/Garden.jpg') !important;
+    background-size: cover;
 }

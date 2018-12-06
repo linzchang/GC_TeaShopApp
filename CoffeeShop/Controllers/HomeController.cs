@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoffeeShop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +14,11 @@ namespace CoffeeShop.Controllers
             return View();
         }
 
-        public ActionResult Registration()
+        public ActionResult Items()
         {
+            CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();
+            ViewBag.ItemList = ORM.Items.ToList();
+
             return View();
         }
 
