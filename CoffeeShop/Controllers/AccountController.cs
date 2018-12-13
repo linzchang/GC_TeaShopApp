@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.Owin.Security;
 
 namespace CoffeeShop.Controllers
 {
@@ -61,6 +62,29 @@ namespace CoffeeShop.Controllers
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel login)
+        {
+            if (ModelState.IsValid)
+            {
+                var authenticationManager = HttpContext.GetOwinContext().Authentication;
+
+                IdentityUser user = userManager.Find(login.Email, login.Password);
+
+                if (user != null)
+                {
+                    var ident = userManager.CreateIdentity(user,
+                        DefaultAuthenticationTypes.ApplicationCookie);
+                    authenticationManager.SignIn(
+                        new AuthenticationProperties { IsPersistent = false }, ident);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+
+            ModelState.AddModelError("", "Invalid email or password.");
+            return View(login);
         }
     }
 }
