@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace CoffeeShop.Controllers
 {
-    public class DatabaseController : Controller
+    public class ItemController : Controller
     {
         // GET: Database
         public ActionResult AddItem()
