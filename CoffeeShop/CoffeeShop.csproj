@@ -255,6 +255,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Database\ItemList.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

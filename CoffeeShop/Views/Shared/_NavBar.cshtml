@@ -1,0 +1,55 @@
+﻿
+
+@helper GetButtonVisibility(string controller, string action = null)
+{
+    if ((string)ViewContext.RouteData.Values["controller"] == controller &&
+         (action == null || (string)ViewContext.RouteData.Values["action"] == action))
+    {
+        <text>hidden</text>
+    }
+    else
+    {
+        <text>visible</text>
+    }
+}
+
+<div class="navbar-right">
+    @if (Request.IsAuthenticated)
+    {
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/About">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="visibility: @GetButtonVisibility("Account")" href="/Account/Logout">Logout</a>
+            </li>
+            <li class="navbar-text font-weight-bold">Hello @User.Identity.Name!</li>
+        </ul>
+    }
+    else
+    {
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/About">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/Contact">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="visibility: @GetButtonVisibility("Account")" href="/Account/Registration">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="visibility: @GetButtonVisibility("Account")" href="/Account/Login">Login</a>
+            </li>
+        </ul>
+    }
+</div>
