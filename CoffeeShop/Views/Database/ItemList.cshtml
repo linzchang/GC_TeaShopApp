@@ -1,0 +1,50 @@
+﻿
+
+@{
+    ViewBag.Title = "ItemList";
+}
+
+<h2>@User.Identity.Name's Item List</h2>
+<br />
+<div class="container">
+    <div class="row form-group">
+        <div class="col-sm">
+            <p class="font-weight-bold">Image</p>
+        </div>
+        <div class="col-sm">
+            <p class="font-weight-bold">Item Name</p>
+        </div>
+        <div class="col-sm">
+            <p class="font-weight-bold">Description</p>
+        </div>
+        <div class="col-sm">
+            <p class="font-weight-bold">Quantity</p>
+        </div>
+        <div class="col-sm">
+            <p class="font-weight-bold">Price</p>
+        </div>
+    </div>
+    @foreach (var item in ViewBag.UserItems)
+    {
+        <div class="row form-group">
+            <div class="col-sm">
+                <img src="~/Images/@(item.ItemName).jpg" class="itemImage img-thumbnail" alt="@item.ItemName Thumbnail" />
+            </div>
+            <div class="col-sm">
+                @item.ItemName
+            </div>
+            <div class="col-sm">
+                @item.Description
+            </div>
+            <div class="col-sm">
+                @item.Quantity
+            </div>
+            <div class="col-sm">
+                $@item.Price
+            </div>
+        </div>
+    }
+
+</div>
+
+

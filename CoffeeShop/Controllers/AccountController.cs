@@ -79,12 +79,26 @@ namespace CoffeeShop.Controllers
                         DefaultAuthenticationTypes.ApplicationCookie);
                     authenticationManager.SignIn(
                         new AuthenticationProperties { IsPersistent = false }, ident);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Confirm", "Account");
                 }
             }
 
             ModelState.AddModelError("", "Invalid email or password.");
             return View(login);
+        }
+
+        [Authorize]
+        public ActionResult Confirm()
+        {
+            return View();
+        }
+
+        public ActionResult Logout()
+        {
+            var authenticationManager = HttpContext.GetOwinContext().Authentication;
+            authenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

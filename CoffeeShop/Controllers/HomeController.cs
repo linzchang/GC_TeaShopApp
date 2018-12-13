@@ -14,6 +14,7 @@ namespace CoffeeShop.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Items()
         {
             CoffeeShopDBEntities1 ORM = new CoffeeShopDBEntities1();

@@ -5,8 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4c1eba9abcfc4e029a60883e6cb9d1d4" Name="Diagram1">
-        <EntityTypeShape EntityType="CoffeeShopDBModel.Item" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDBModel.User" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.Item" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.User" Width="1.5" PointX="0.75" PointY="1" />
+        <AssociationConnector Association="CoffeeShopDBModel.FK_Item_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

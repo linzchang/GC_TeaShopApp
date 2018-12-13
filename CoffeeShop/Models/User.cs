@@ -14,12 +14,20 @@ namespace CoffeeShop.Models
     
     public partial class User
     {
-        public int UserID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Items = new HashSet<Item>();
+        }
+    
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public string FavoriteDrink { get; set; }
         public string Username { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Item> Items { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CoffeeShop.Controllers
 {
+    [Authorize]
     public class ItemController : Controller
     {
         // GET: Database

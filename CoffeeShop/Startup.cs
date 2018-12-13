@@ -28,7 +28,7 @@ namespace CoffeeShop
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Identity/Login")
+                LoginPath = new PathString("/Account/Login")
             });
         }
     }
